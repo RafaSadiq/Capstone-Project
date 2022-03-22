@@ -1,0 +1,11 @@
+@media screen and (min-width: 400px) {
+    .row, .navbar {   
+        flex-direction: column;
+    }
+}
+  
+@media screen and (min-width: 800px) {
+    .row, .navbar {   
+        flex-direction: column;
+    }
+}
