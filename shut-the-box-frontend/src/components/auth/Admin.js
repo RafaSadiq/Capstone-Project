@@ -9,13 +9,13 @@ export default function LogIn() {
     const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = (e) => {
-        e.preventDefault();  
+        e.preventDefault();        
 
         if(username === '' || password === '') {
-            setError(false);
+            setError(true);
             setErrorMessage('Error: All fields must be filled in!');
         } else {
-            fetch('http://localhost:5000/user/verify', {
+            fetch('http://localhost:5000/user', {
                 method: 'POST',
                 credentials: 'same-origin',
                 headers: {
@@ -30,16 +30,19 @@ export default function LogIn() {
             
             .then(res => res.json())
             .then(res => { 
-                if(res === 'User NOT verified') {
+                console.log(res)        
+                if(res === 'User NOT verified.') {
+                    console.log(res)
                     setError(true);
                     setErrorMessage('Invalid username or password.');
                 } else if(res === 'User has been verified') {
+                    console.log('you are logged IN')
                     Cookies.set('username', username);
-                    console.log('User Verified')
-                    navigate('/GameMenu');
+                    navigate('/');
                 }
             })
             .catch(error => {
+                // console.log('no shit')  
                 setError(true);
                 setErrorMessage('Error logging in, please try again.');
             })
@@ -59,7 +62,7 @@ export default function LogIn() {
             <h2>LOGIN FOR THE GAME MENU</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <input className="inp2" type="text" placeholder="Username" value={username} name="username" onChange={(e) => setUsername(e.target.value)}/>
-                <input className="inp2" type="password" placeholder="Password" value={password} name="password" onChange={(e) => setPassword(e.target.value)}/>
+                <input className="inp2" type="text" placeholder="Password" value={password} name="password" onChange={(e) => setPassword(e.target.value)}/>
 
                 <button className="inp2" type="submit">Submit</button>
             </form>

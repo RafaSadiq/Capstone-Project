@@ -59,8 +59,8 @@ export default function SignUp() {
             <h2>SIGNUP</h2>
             <form className = "form-container" onSubmit={(e) => handleSubmit(e)} >
                 <input className="inp1" type = "text" placeholder = "username" name = "username" value = {username} onChange = {(e) => setusername(e.target.value)} />
-                <input className="inp1" type = "text" placeholder = "Password" name = "password" value = {password} onChange = {(e) => setPassword(e.target.value)} />
-                <input className="inp1" type = "text" placeholder = "Confirm Password" name = "confirmpassword" value = {confirmPassword} onChange = {(e) => setConfirmPassword(e.target.value)} />
+                <input className="inp1" type = "password" placeholder = "Password" name = "password" value = {password} onChange = {(e) => setPassword(e.target.value)} />
+                <input className="inp1" type = "password" placeholder = "Confirm Password" name = "confirmpassword" value = {confirmPassword} onChange = {(e) => setConfirmPassword(e.target.value)} />
 
                 <button className = "inp1" type="submit" >
                     Submit

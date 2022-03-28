@@ -8,7 +8,7 @@ export default class Home extends Component {
             isLoading: true,            
         };
 
-        window.addEventListener("scroll", this.onScroll, false);
+        window.addEventListener("scroll", this.onScroll, true);
     }
     
     

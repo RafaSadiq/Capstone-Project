@@ -1,0 +1,65 @@
+.game-scoreboard {
+    border: 1px solid red;
+    margin: 10px;
+    padding: 0;
+    width: 98vw;
+    height: 35vh;
+}
+
+#player1-scoreboard {
+    display: none;
+}
+
+#player2-scoreboard {
+    display: none;
+}
+
+h2 {
+    margin-bottom: 10px;
+    font-family: 'Changa One', cursive;
+    font-weight: 200;
+    display: flex;
+    justify-content: center;
+} 
+
+h3 {
+    margin-bottom: 10px;
+    font-family: 'Changa One', cursive;
+    font-weight: 200;
+    text-align: center;
+    font-size: 1rem;
+}  
+
+.bar1 {
+    border-bottom: #FFF 2px solid;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 3px 3px 6px #000;
+    border-radius: 2px;
+}
+  
+.score-row {
+    display: flex;
+    padding: 5px 20px 15px 20px;
+}
+
+.score-block {
+flex: 1;
+}
+
+.top-bar {
+    border-top: #FFF 2px solid;
+    box-shadow: 3px 3px 6px #000;
+    width: 65%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 2px;
+}
+
+span {
+    display: flex;
+    justify-content: center;
+}
+  
+  

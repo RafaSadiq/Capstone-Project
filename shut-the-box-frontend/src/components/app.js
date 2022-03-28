@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useRoutes } from 'hookrouter';
 import Cookies from 'js-cookie';
 import Home from "./pages/home";
-import NavBar1 from './navi/NavBar1';
 import SignUp from './auth/signUp';
 import LogIn from './auth/logIn';
 import ShutTheBox from './pages/game/ShutTheBox';
 import NoMatch from "./pages/No-Match";
+import NavBar from './navi/NavBar';
+import GameMenu from "./pages/Menu/GameMenu";
 
-export default function App() {
-    const [ loggedIn, setLoggedIn ] = useState(false)
+function App() {
+    const [loggedIn, setLoggedIn] = useState(false)
 
     useEffect(() => {
-        if(Cookies.get('username', 'password')) {
-           setLoggedIn(true) 
+        if (Cookies.get('username')) {
+            setLoggedIn(true)
         }
     })
 
@@ -24,20 +25,22 @@ export default function App() {
 
     const routes = {
         '/': () => <Home  />,
-        '/ShutTheBox' : () => <ShutTheBox loggedIn = { loggedIn } />,
+        '/ShutTheBox' : () => <ShutTheBox loggedIn = {loggedIn} />,
         '/SignUp': () => <SignUp />,
-        '/LogIn': () => <LogIn />
+        '/LogIn': () => <LogIn />,
+        '/GameMenu': () => <GameMenu />
+        // '/How-To-Play': () => <HowToPlay />
 
     }
 
     const routeResult = useRoutes(routes)
 
-        return (
-            <div className = 'App'>
-                <NavBar1 logout = { logout } />
-                {routeResult || < NoMatch />}
-            </div>
-
-        );
-
+    return (
+        <div className = 'nav-Cont'>
+            <NavBar loggedIn = {loggedIn} logout = {logout}/>
+            {routeResult || < NoMatch />}
+        </div>
+    )
 }
+
+export default App;

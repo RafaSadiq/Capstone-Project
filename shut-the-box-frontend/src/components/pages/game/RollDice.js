@@ -42,17 +42,19 @@ render(){
 					'RollDice-rolling' : ''
 	const {die1, die2, rolling} = this.state
 	return(
-	<div className='RollDice'>
-		<div className='RollDice-container'>
-		<Die face={die1} rolling={rolling}/>
-		<Die face={die2} rolling={rolling}/>
+		<div className='RollDice'>
+			<div className='RollDice-container'>
+				<Die face={die1} rolling={rolling}/>
+				<Die face={die2} rolling={rolling}/>
+			</div>
+			<div className='btn60'>
+				<button className={handleBtn}
+					disabled={this.state.rolling}
+					onClick={this.roll}>
+					{this.state.rolling ? 'Rolling' : 'Roll Dice!'}
+				</button>
+			</div>
 		</div>
-		<button className={handleBtn}
-				disabled={this.state.rolling}
-				onClick={this.roll}>
-		{this.state.rolling ? 'Rolling' : 'Roll Dice!'}
-		</button>
-	</div>
 	)
 }
 }

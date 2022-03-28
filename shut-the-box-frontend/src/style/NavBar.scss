@@ -1,13 +1,12 @@
+
 .nav-container {
-    .nav-link-container {
-        display: flex;
-        justify-content: space-evenly;
-        width: 96vw;
-        margin:20px;
-    }
-
-    A {
-        text-decoration: none;
-    }
-
+    display: flex;
+    justify-content: space-evenly;
+    width: 96vw;
+    margin:20px;
 }
+
+A {
+    text-decoration: none;
+}
+

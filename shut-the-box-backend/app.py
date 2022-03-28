@@ -37,7 +37,7 @@ multiple_user_schema = UserSchema(many = True)
 @cross_origin()
 def add_user():
     if request.content_type != 'application/json':
-        return jsonify('Error: Data must be in JSON format')
+        return jsonify('Error: Data must be in Json format')
 
     post_data = request.get_json()
     username = post_data.get('username')
@@ -57,7 +57,10 @@ def add_user():
 @app.route('/user/verify', methods = ['POST'])
 @cross_origin()
 def verify_user():
-    
+    print(request.content_type)
+    if request.content_type != 'application/json':
+        return jsonify('Error: Data must be in Json format')
+
     post_data = request.get_json()
     username = post_data.get('username')
     password = post_data.get('password')
@@ -66,6 +69,8 @@ def verify_user():
 
     if user is None:
         return jsonify('User NOT verified')
+    if password != user.password:
+        return jsonify('Pass NOT verified')
     
     return jsonify('User has been verified')
 
@@ -92,7 +97,7 @@ def delete_user(id):
     return jsonify(f'The user {user.username} has been deleted')
 
 
-@app.route('/users', methods = ['GET'])
+@app.route('/user', methods = ['GET'])
 def get_users():
     users = db.session.query(User).all()
     return jsonify(multiple_user_schema.dump(users))
