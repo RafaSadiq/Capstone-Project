@@ -9,3 +9,59 @@
         flex-direction: column;
     }
 }
+
+@media (max-width: 800px){
+    h1 {
+      padding: 0 15px;
+    }
+    .how-to-play {
+      float: none;
+      margin-top: 10px;
+    }
+    .main-space {
+      display: block;
+    }
+    #dice-board {
+      border-right: none;
+      margin-right: none;
+      margin-bottom: 20px;
+      width: 100% !important;
+      border-bottom: #170d0c 7px ridge;
+    }
+    #dice-row {
+      margin-top: 0;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+      padding: 10px;
+    }
+    .dice {
+      width: 90px !important;
+      height: 90px;
+    }
+    .button-row {
+      margin-top: 0;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 10px;
+      width: 95%;
+    }
+  
+    .col-1 {
+      height: 70px;
+      line-height: 70px;
+      font-size: 40px;
+    }
+    .col-1-2-player {
+      height: 50px;
+      line-height: 50px;
+      font-size: 30px;
+    }
+    .player-id {
+      font-size: 20px !important;
+      line-height: 20px;
+    }
+    .dice-button {
+      font-size: 18px;
+    }
+}

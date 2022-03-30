@@ -7,7 +7,8 @@ import LogIn from './auth/logIn';
 import ShutTheBox from './pages/game/ShutTheBox';
 import NoMatch from "./pages/No-Match";
 import NavBar from './navi/NavBar';
-import GameMenu from "./pages/Menu/GameMenu";
+import GameMenu from "./pages/game/Menu/GameMenu";
+import HowToPlay from './pages/game/Menu/HowToPlay';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -28,15 +29,15 @@ function App() {
         '/ShutTheBox' : () => <ShutTheBox loggedIn = {loggedIn} />,
         '/SignUp': () => <SignUp />,
         '/LogIn': () => <LogIn />,
-        '/GameMenu': () => <GameMenu />
-        // '/How-To-Play': () => <HowToPlay />
+        '/GameMenu': () => <GameMenu />,
+        '/HowToPlay': () => <HowToPlay />
 
     }
 
     const routeResult = useRoutes(routes)
 
     return (
-        <div className = 'nav-Cont'>
+        <div className = 'App'>
             <NavBar loggedIn = {loggedIn} logout = {logout}/>
             {routeResult || < NoMatch />}
         </div>

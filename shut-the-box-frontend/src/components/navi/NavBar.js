@@ -23,19 +23,12 @@ function NavBar (props) {
                 {props.loggedIn ? null : < A href = '/SignUp' > 
                     SIGNUP
                 </A>}
-                {props.loggedIn === true ? < A onClick = {() => props.gamemenu()} href = '/GameMenu' >
+                {props.loggedIn === true ? < A href = '/GameMenu' >
                     Game Menu
                 </A> : null }
             </div>
 
-            <div>
-                {props.loggedIn ? null : < A href = '/GameMenu' > 
-                    Game Menu
-                </A>}
-                {props.loggedIn === true ? < A onClick = {() => props.game()} href = '/ShutTheBox' >
-                    Game
-                </A> : null }
-            </div>
+
 
         </div>
     )

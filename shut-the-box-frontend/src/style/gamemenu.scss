@@ -8,9 +8,9 @@
 #number-of-players {
     display: flex;
     justify-content: center;
+    flex-direction: row;
     padding: 0 5%;
     margin-top: 30px;
-    height: 2 0%;
 }
 
 #start-button-row {
@@ -18,7 +18,13 @@
     justify-content: center;
     padding: 0 5%;
     margin-top: 30px;
-    height: 2 0%;
+    
+}
+
+#start-game {
+    width: 210px;
+    background-color: yellow;
+
 }
 
 .button-clicked {
@@ -29,13 +35,28 @@
 
 #player1-btn {
     margin-right: 30px;
+    width: 210px;
+    background-color: yellow;
 }
 
 #player2-btn {
     margin-left: 30px;
+    width: 210px;
+    background-color: yellow;
 }
 
-.how-to-play {
+#how-to-play {
     display: flex;
     justify-content: center;
+    padding: 0 5%;
+    margin-top: 30px;
+}
+
+#instructions {
+    width: 210px;
+    background-color: yellow;
+}
+
+.button-row {
+    display: none;
 }

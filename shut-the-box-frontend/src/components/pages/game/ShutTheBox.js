@@ -3,19 +3,11 @@ import $ from "jquery";
 import RollDice from "../game/RollDice";
 import Switch from "../game/switch/switch";
 import ScoreBoard from "../game/ScoreBoard";
+import Players from "./players/players";
 
 
 function ShutTheBox() {
 
-      $("#reset4").on("click", function () {
-            let selectButtons = ['reset4'];
-            for(i = 0; i < selectMenus.length; i++) {
-              $('#' + selectMenus[i]).prop('selectedIndex', 0);
-            }
-            for(j = 0; j < textFields.length; j++) {
-              $('#' + textFields[j]).val("");
-            }
-      });
 
       return (
             <div className="dice-game">
@@ -46,7 +38,9 @@ function ShutTheBox() {
 
 
                         <RollDice /> <br/>
-                        <Switch  /> <br/>
+                        <Players /> <br/> 
+
+                        {/* <Switch  /> <br/> */}
                         <div>
                               <p>
                                     If Player Cannot make all the tabs red on their turn, <br/>
@@ -55,15 +49,13 @@ function ShutTheBox() {
                         </div>
 
                         <div className="btn-container">
-                              <button id="reset4" className="btn69" >TURN END</button>
+                              <button id="reset" className="btn69" type="button" name="button">TURN END</button>
                         </div>
 
-                        <ScoreBoard />
+                        {/* <ScoreBoard /> */}
                   </div>
             </div>
       );
 }
-  
+
 export default ShutTheBox;
-
-

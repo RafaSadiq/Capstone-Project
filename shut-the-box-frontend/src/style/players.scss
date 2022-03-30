@@ -1,0 +1,82 @@
+.players-turn-button {
+    font-size: 38px;
+    width: 300px;
+    color: #000;
+}
+
+.player-id {
+    font-size: 20px !important;
+    line-height: 20px;
+}
+
+.player-selection-intro {
+    font-size: 24px;
+    padding: 25px;
+}
+
+.col-1-2-player {
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+}
+
+#player-2-number-line {
+    display: none;
+}
+
+.number-line-1 {
+    display: flex;
+    border-bottom: #170d0c 7px ridge;
+    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+    0px -5px 35px rgba(255,255,255,0.3);
+    background: rgb(143,35,33);
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.P-Container {
+    width: 100vw;
+}
+
+.not-players-turn {
+    color: #c95e5e;
+}
+
+.col-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    border: #000 1px solid;
+    height: 150px;
+    font-size: 100px;
+    
+}
+
+.col-1-2-player, .col-2-2-player {
+    flex: 1;
+    border: #000 1px solid;
+    height: 75px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 40px;
+}
+
+.player-id {
+    font-size: 30px !important;
+    line-height: 35px;
+}
+
+.selected {
+    background-color: rgba(0,0,0,0.5);
+}
+
+.played {
+background-color: rgba(0,0,0,0.8) !important;
+background-image: url("../components/pages/pics/dark-wood.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+}
+
