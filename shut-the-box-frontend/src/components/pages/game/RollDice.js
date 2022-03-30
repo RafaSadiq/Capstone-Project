@@ -38,7 +38,7 @@ function RollDice () {
 
 	var returnRollDice = function() {
 		$(document).on("keypress", function(event) {
-			if (event.which === 13) {
+			if (event.which === 12) {
 				rollDiceCompleteTurn();
 			}
 		});
@@ -72,10 +72,10 @@ function RollDice () {
 	};
 
 	var setNumbers = function() {
-		for (let i = 1; i <= 10; i++) {
+		for (let i = 1; i <= 9; i++) {
 			$(`#num-${i}`).text(i);
 		}
-		for (let i = 1; i <= 10; i++) {
+		for (let i = 1; i <= 9; i++) {
 			$(`#num-${i}-2`).text(i);
 		}
 
@@ -119,7 +119,7 @@ function RollDice () {
 		  $("#1-player-scoreboard, #dice-row, #roll-dice-row").fadeIn();
 		  $("#roll-dice").text("Roll Again");
 		} else if (numberOfPlayers === 2) {
-		  playersTurn = 1;
+		  $playersTurn = 1;
 		  twoPlayerGame();
 		  $("#welcome-scoreboard, #number-of-players, #start-button-row").hide();
 		  $("#2-player-scoreboard, #dice-row, #roll-dice-row").fadeIn();
@@ -132,21 +132,21 @@ function RollDice () {
 		mouseOverButton();
 	
 		// Function that checks to see if you have won the game
-		var winGame = function() {
-			if (numbersPlayed.length === 10) {
-				winGamePopup();
-				gamesWon += 1;
-				$gamesWon.text(gamesWon);
-				gamesPlayed += 1;
-				$gamesPlayed.text(gamesPlayed);
-				stopTimer();
-				compareRecordTime();
-				$numDiv.removeClass("selected played");
-				compareDiceRolls();
-			} else {
-				return;
-			}
-		};
+		// var winGame = function() {
+		// 	if (numbersPlayed.length === 9) {
+		// 		winGamePopup();
+		// 		gamesWon += 1;
+		// 		$gamesWon.text(gamesWon);
+		// 		gamesPlayed += 1;
+		// 		$gamesPlayed.text(gamesPlayed);
+		// 		stopTimer();
+		// 		compareRecordTime();
+		// 		$numDiv.removeClass("selected played");
+		// 		compareDiceRolls();
+		// 	} else {
+		// 		return;
+		// 	}
+		// };
 	
 		// function to black out numbers that have already been played successfully
 		var playedNumbers = function() {
@@ -170,7 +170,7 @@ function RollDice () {
 
 		var rollTheDice = function() {
 			// check to see if user has won game
-			winGame();
+			// winGame();
 		
 			// play roll dice sound
 			// rollDicemp3();
@@ -216,14 +216,14 @@ function RollDice () {
 			}, 1200);
 		};
 
-		var setNumbers = function() {
-			for (let i = 1; i <= 10; i++) {
-				$(`#num-${i}`).text(i);
-			}
-			for (let i = 1; i <= 10; i++) {
-				$(`#num-${i}-2`).text(i);
-			}
-		}
+		// var setNumbers = function() {
+		// 	for (let i = 1; i <= 9; i++) {
+		// 		$(`#num-${i}`).text(i);
+		// 	}
+		// 	for (let i = 1; i <= 9; i++) {
+		// 		$(`#num-${i}-2`).text(i);
+		// 	}
+		// }
 		// remove dice background class
 		// $dice1.removeClass(dice1Bkgnd);
 		// $dice2.removeClass(dice2Bkgnd);
@@ -269,10 +269,7 @@ function RollDice () {
 		  } else if (event.which === 57) {
 			$("#num-9").toggleClass("selected");
 			numberSelect();
-		  } else if (event.which === 48) {
-			$("#num-10").toggleClass("selected");
-			numberSelect();
-		  }
+		  } 
 		});
 
 		// Event Listener on "return/enter" key to roll the dice and check selected numbers
@@ -311,16 +308,16 @@ function RollDice () {
 		};
 	
 		// Update record dice rolls with current number
-		var compareDiceRolls = function() {
-			if (recordDiceRolls === 0) {
-				recordDiceRolls = diceRolls;
-				$recordDiceRolls.text(recordDiceRolls);
-			} else if (recordDiceRolls < diceRolls) {
-				$recordDiceRolls.text(diceRolls);
-			} else {
-				return;
-			}
-		};
+		// var compareDiceRolls = function() {
+		// 	if (recordDiceRolls === 0) {
+		// 		recordDiceRolls = diceRolls;
+		// 		$recordDiceRolls.text(recordDiceRolls);
+		// 	} else if (recordDiceRolls < diceRolls) {
+		// 		$recordDiceRolls.text(diceRolls);
+		// 	} else {
+		// 		return;
+		// 	}
+		// };
 	
 		// Timer - Thank You Bobby King - referenced from our in-class Stopwatch project http://bobbydigital.website/
 		// Global variables
@@ -387,18 +384,18 @@ function RollDice () {
 		// // End Timer
 	
 		// Event Listener to close win popup window and re-set game
-		$("#close-win-popup, #play-again, .win-cover").on("click", function() {
-		  $winCover.fadeOut(1000);
-		  $winPopup.fadeOut(1000);
-		  setNumbers();
-		//   resetTimer();
-		//   startTimer();
-		  diceRolls = 0;
-		  diceRollCount();
-		  numbersPlayed = [];
-		  sumSelectedNumbers = 0;
-		//   crowdCheeringStop();
-		});
+		// $("#close-win-popup, #play-again, .win-cover").on("click", function() {
+		//   $winCover.fadeOut(1000);
+		//   $winPopup.fadeOut(1000);
+		//   setNumbers();
+		// //   resetTimer();
+		// //   startTimer();
+		//   diceRolls = 0;
+		//   diceRollCount();
+		//   numbersPlayed = [];
+		//   sumSelectedNumbers = 0;
+		// //   crowdCheeringStop();
+		// });
 	
 		setNumbers();
 		spinDice();
@@ -474,10 +471,7 @@ function RollDice () {
 	// 	// 		} else if (event.which === 57) {
 	// 	// 			$("#num-9").toggleClass("selected");
 	// 	// 			numberSelect();
-	// 	// 		} else if (event.which === 48) {
-	// 	// 			$("#num-10").toggleClass("selected");
-	// 	// 			numberSelect();
-	// 	// 		}
+	// 	// 		} 
 	// 	// 	});
 
 	// 	// 	// Event Listener on "return/enter" key to roll the dice and check selected numbers

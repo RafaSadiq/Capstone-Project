@@ -19,7 +19,7 @@ function scoreboard() {
                         </div>
                     </div>
 
-                    <div id="score-row-2" className="score-row">
+                    {/* <div id="score-row-2" className="score-row">
                         <div id="current-time" className="score-block">
                             <div className="top-bar"></div>
                             <h3>Timer</h3>
@@ -31,7 +31,7 @@ function scoreboard() {
                             <h3>Best Time</h3>
                             <span className="record-time">00:00</span>
                         </div>
-                    </div>
+                    </div> */}
 
                     <div id="score-row-3" className="score-row">
                         <div id="number-games-played" className="score-block">
@@ -48,7 +48,7 @@ function scoreboard() {
                 </div>
             </div>
 
-            <div id="player2-scoreboard">
+            {/* <div id="player2-scoreboard">
                 <div>
                     <button id="players-turn" className="dice-button yellow-bkgnd players-turn-button" type="button" name="button">
                     Player 1's Turn
@@ -67,7 +67,7 @@ function scoreboard() {
                         <span className="total-games-won-2">0</span>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

@@ -1,8 +1,6 @@
 import React from "react";
 import {A} from 'hookrouter';
 import $ from 'jquery';
-import Player1 from "../players/player1";
-import Player2 from "../players/player2";
 
 
 function GameMenu() {
@@ -98,17 +96,17 @@ function GameMenu() {
             <div className="spacer-10"></div>
             <div id="dice-board" >
                 <div id="number-of-players"  >
-                    <button id="1-player-button" className="dice-button yellow-bkgnd player-button" >1 Player</button>
-                    <button id="2-player-button" className="dice-button yellow-bkgnd player-button" >2 Players</button>
+                    <button id="1-player-button" className="dice-button1 yellow-bkgnd player-button" >1 Player</button>
+                    <button id="2-player-button" className="dice-button1 yellow-bkgnd player-button" >2 Players</button>
                 </div>
             </div>
             <div className="spacer-10"></div>
             <div className="spacer-10"></div>
             <div id="start-button-row" className="button-row">
-                <button id="start-game" className="dice-button yellow-bkgnd" value = "Refresh Page" onClick = 'refresh' >
-                <A href="/ShutTheBox" >
-                        Start The Game
-                </A>
+                <button id="start-game" className="dice-button yellow-bkgnd" value='Refresh Page' onClick='{refresh}' >
+                    <A href="/ShutTheBox"  >
+                            Start The Game
+                    </A>
                 </button>
             </div>
             <div className="spacer-10"></div>
