@@ -24,7 +24,7 @@ function NavBar (props) {
                     SIGNUP
                 </A>}
                 {props.loggedIn === true ? < A href = '/GameMenu' >
-                    Game Menu
+                    GAME MENU
                 </A> : null }
             </div>
 

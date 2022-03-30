@@ -1,13 +1,19 @@
 import React from "react";
 import {A} from 'hookrouter';
 import $ from 'jquery';
+import Player1 from "../players/player1";
+import Player2 from "../players/player2";
 
 
 function GameMenu() {
 
     var $yellowBkgnd = $(".yellow-bkgnd");
+    var playersTurn = 0;
     var $playersTurn = $("#players-turn");
+    var $p1NumberLine = $("#player1-number-line");
+    var $p2NumberLine = $("#player2-number-line");
     var numberOfPlayers = 0;
+
 
     var mouseOverButton = function() {
         $yellowBkgnd.on("mouseenter", function() {
@@ -22,10 +28,10 @@ function GameMenu() {
         $playersTurn.off("mouseleave");
     };
     mouseOverButton();
-
+    
     // Hover effect for Player select buttons
-    var $player1Button = $("#player1-button");
-    var $player2Button = $("#player2-button");
+    var $1playerButton = $("#1-player-button");
+    var $2playerButton = $("#2-player-button");
 
     var mouseEnterButton1 = function(button) {
         button.on("mouseenter", function() {
@@ -33,65 +39,45 @@ function GameMenu() {
             "color:#000; box-shadow:none");
         });
     };
-    mouseEnterButton1($player1Button);
-    mouseEnterButton1($player2Button);
+    mouseEnterButton1($1playerButton);
+    mouseEnterButton1($2playerButton);
 
-    var mouseLeaveButton2 = function(button) {
+    var mouseLeaveButton1 = function(button) {
         button.on("mouseleave", function() {
             $(this).removeAttr("style",
             "color:#000; box-shadow:none");
         });
     };
-    mouseLeaveButton2($player1Button);
-    mouseLeaveButton2($player2Button);
+    mouseLeaveButton1($1playerButton);
+    mouseLeaveButton1($2playerButton);
+    // End hover effect for Player select buttons
 
-    $player1Button.on("click", function() {
-        $(this).off("mouseleave");
-        $player2Button.removeAttr("style",
-          "color:#000; box-shadow:none");
-        mouseEnterButton1($player2Button);
-        mouseLeaveButton2($player2Button);
-        $(".col-1").removeClass("col-1-2-player");
-        $p2NumberLine.hide();
-        $("#player2-id, #player1-id").addClass("hidden");
-        numberOfPlayers = 1;
+    // Event listener on 1 Player button
+    $1playerButton.on("click", function() {
+    $(this).off("mouseleave");
+    $2playerButton.removeAttr("style",
+        "color:#000; box-shadow:none");
+    mouseEnterButton1($2playerButton);
+    mouseLeaveButton1($2playerButton);
+    $(".col-1").removeClass("col-1-2-player");
+    $p2NumberLine.hide();
+    $("#player-2-id, #player-1-id").addClass("hidden");
+    numberOfPlayers = 1;
     });
-
-    $player2Button.on("click", function() {
-        $(this).off("mouseleave");
-        $player1Button.removeAttr("style",
-          "color:#000; box-shadow:none");
-        mouseEnterButton1($player1Button);
-        mouseLeaveButton1($player1Button);
-        $(".col-1").addClass("col-1-2-player");
-        $p2NumberLine.show();
-        $("#player2-id, #player1-id").removeClass("hidden");
-        numberOfPlayers = 2;
+    
+    // Event listener on 2 Player button
+    $2playerButton.on("click", function() {
+    $(this).off("mouseleave");
+    $1playerButton.removeAttr("style",
+        "color:#000; box-shadow:none");
+    mouseEnterButton1($1playerButton);
+    mouseLeaveButton1($1playerButton);
+    $(".col-1").addClass("col-1-2-player");
+    $p2NumberLine.show();
+    $("#player-2-id, #player-1-id").removeClass("hidden");
+    numberOfPlayers = 2;
     });
-
-    $("#start-game").on("click", function() {
-        if (numberOfPlayers === 0) {
-            alert("Please select the number of players.");
-        } else if (numberOfPlayers === 1) {
-            onePlayerGame();
-            $("#welcome-scoreboard, #number-of-players, #start-button-row").hide();
-            $("#player1-scoreboard, #dice-row, #roll-dice-row").fadeIn();
-            $("#roll-dice").text("Roll Again");
-        // }
-        } else if (numberOfPlayers === 2) {
-            $playersTurn = 1;
-            twoPlayerGame();
-            $("#welcome-scoreboard, #number-of-players, #start-button-row").hide();
-            $("#player2-scoreboard, #dice-row, #roll-dice-row").fadeIn();
-            $("#roll-dice").text("Play Selected Numbers or Roll");
-        }
-    }); 
-
-   
-
     
-    
-
     return (
         <div id="Menu-screen" >
             <div id="welcome-scoreboard" className="player-selection-intro">
@@ -110,19 +96,19 @@ function GameMenu() {
                 </button>
             </div>
             <div className="spacer-10"></div>
-            <div id="num-players" >
-                <div id="number-of-players" className="button-row" >
-                    <button id="player1-btn" className="dice-button yellow-bkgnd player-button" >1 Player</button>
-                    <button id="player2-btn" className="dice-button yellow-bkgnd player-button"  >2 Players</button>
+            <div id="dice-board" >
+                <div id="number-of-players"  >
+                    <button id="1-player-button" className="dice-button yellow-bkgnd player-button" >1 Player</button>
+                    <button id="2-player-button" className="dice-button yellow-bkgnd player-button" >2 Players</button>
                 </div>
             </div>
             <div className="spacer-10"></div>
             <div className="spacer-10"></div>
             <div id="start-button-row" className="button-row">
-                <button id="start-game" className="dice-button yellow-bkgnd" >
-                {/* <A href="/ShutTheBox"> */}
+                <button id="start-game" className="dice-button yellow-bkgnd" value = "Refresh Page" onClick = 'refresh' >
+                <A href="/ShutTheBox" >
                         Start The Game
-                {/* </A> */}
+                </A>
                 </button>
             </div>
             <div className="spacer-10"></div>

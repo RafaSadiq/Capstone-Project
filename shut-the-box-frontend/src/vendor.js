@@ -1,10 +1,10 @@
-// /* eslint-disable global-require */
+/* eslint-disable global-require */
 
-// // polyfills and vendors
+// polyfills and vendors
 
-// if (!window._babelPolyfill) {
-//   require('babel-polyfill');
-// }
+if (!window._babelPolyfill) {
+  require('babel-polyfill');
+}
 
 
 /*! jQuery v3.2.1 | (c) JS Foundation and other contributors | jquery.org/license */

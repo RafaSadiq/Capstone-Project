@@ -1,13 +1,21 @@
 import React from "react";
 import $ from "jquery";
 import RollDice from "../game/RollDice";
-import Switch from "../game/switch/switch";
+// import RollDice from "../game/RollDices";
 import ScoreBoard from "../game/ScoreBoard";
 import Players from "./players/players";
+import {A} from 'hookrouter';
 
 
 function ShutTheBox() {
 
+      $("#lets-play, #close-popup, .popup-cover").on("click", function() {
+            $(".popup-cover").fadeOut(1000);
+      });
+      
+      var incorrectPopup = function() {
+            $("#incorrect-play").fadeIn(1000);
+          };
 
       return (
             <div className="dice-game">
@@ -17,7 +25,11 @@ function ShutTheBox() {
                               <div id="close-popup" className="close-popup">X</div>
                               <div id="incorrect-play-popup" className="popup-window popup-window-small">
                               Your selected number(s) does not add up to the sum of the dots on the displayed dice. Please select again.
-                              <button id="lets-play" className="popup-button yellow-bkgnd" type="button" name="button">Back to the Game</button>
+                                    <button id="lets-play" className="popup-button yellow-bkgnd" type="button" name="button">
+                                          <A href="/ShutTheBox">
+                                                Back to the Game
+                                          </A>
+                                    </button>
                               </div>
                         </div>
 
@@ -31,26 +43,24 @@ function ShutTheBox() {
                                           YOU WIN!!!
                                     </h2>
                                     <button id="play-again" className="popup-button yellow-bkgnd" type="button" name="button">
-                                          Play Again??
+                                          <A href="/ShutTheBox">
+                                                Play Again??
+                                          </A>
                                     </button>
+                                    <button id="End Game" className="popup-button yellow-bkgnd" type="button" name="button">
+                                          <A href="/GameMenu">
+                                                End Game
+                                          </A>
+                                    </button>
+
                               </div>
                         </div>
 
 
                         <RollDice /> <br/>
                         <Players /> <br/> 
+                        
 
-                        {/* <Switch  /> <br/> */}
-                        <div>
-                              <p>
-                                    If Player Cannot make all the tabs red on their turn, <br/>
-                                    Press TURN END.
-                              </p>
-                        </div>
-
-                        <div className="btn-container">
-                              <button id="reset" className="btn69" type="button" name="button">TURN END</button>
-                        </div>
 
                         {/* <ScoreBoard /> */}
                   </div>
