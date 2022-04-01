@@ -99,8 +99,8 @@ function GameMenu() {
             <div className="spacer-10"></div>
             <div id="dice-board" >
                 <div id="number-of-players"  >
-                    <button id="1-player-button" className="dice-button1 yellow-bkgnd player-button" >1 Player</button>
-                    <button id="2-player-button" className="dice-button1 yellow-bkgnd player-button" >2 Players</button>
+                    {/* <button id="1-player-button" className="dice-button1 yellow-bkgnd player-button" >1 Player</button>
+                    <button id="2-player-button" className="dice-button1 yellow-bkgnd player-button" >2 Players</button> */}
                 </div>
             </div>
             <div className="spacer-10"></div>
