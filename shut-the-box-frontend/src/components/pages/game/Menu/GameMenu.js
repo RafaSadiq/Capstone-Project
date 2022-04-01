@@ -11,6 +11,7 @@ function GameMenu() {
     var $p1NumberLine = $("#player1-number-line");
     var $p2NumberLine = $("#player2-number-line");
     var numberOfPlayers = 0;
+    var refresh = {refresh};
 
 
     var mouseOverButton = function() {
@@ -63,18 +64,20 @@ function GameMenu() {
     numberOfPlayers = 1;
     });
     
-    // Event listener on 2 Player button
-    $2playerButton.on("click", function() {
-    $(this).off("mouseleave");
-    $1playerButton.removeAttr("style",
-        "color:#000; box-shadow:none");
-    mouseEnterButton1($1playerButton);
-    mouseLeaveButton1($1playerButton);
-    $(".col-1").addClass("col-1-2-player");
-    $p2NumberLine.show();
-    $("#player-2-id, #player-1-id").removeClass("hidden");
-    numberOfPlayers = 2;
-    });
+    // // Event listener on 2 Player button
+    // $2playerButton.on("click", function() {
+    // $(this).off("mouseleave");
+    // $1playerButton.removeAttr("style",
+    //     "color:#000; box-shadow:none");
+    // mouseEnterButton1($1playerButton);
+    // mouseLeaveButton1($1playerButton);
+    // $(".col-1").addClass("col-1-2-player");
+    // $p2NumberLine.show();
+    // $("#player-2-id, #player-1-id").removeClass("hidden");
+    // numberOfPlayers = 2;
+    // });
+
+    
     
     return (
         <div id="Menu-screen" >
@@ -103,7 +106,7 @@ function GameMenu() {
             <div className="spacer-10"></div>
             <div className="spacer-10"></div>
             <div id="start-button-row" className="button-row">
-                <button id="start-game" className="dice-button yellow-bkgnd" value='Refresh Page' onClick='{refresh}' >
+                <button id="start-game" className="dice-button yellow-bkgnd" value='Refresh Page' onClick= {refresh} >
                     <A href="/ShutTheBox"  >
                             Start The Game
                     </A>

@@ -30,6 +30,7 @@ function NavBar (props) {
 
 
 
+
         </div>
     )
 }
