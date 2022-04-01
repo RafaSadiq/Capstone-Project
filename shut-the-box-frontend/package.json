@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Basic skeleton codebase for React/Redux/Router applications.",
   "engines": {
-    "node": "6.11.1"
+    "node": "16.14.1"
   },
   "scripts": {
     "preinstall": "npm set audit false",
